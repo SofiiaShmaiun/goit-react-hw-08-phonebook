@@ -17,25 +17,24 @@ export default function Form() {
   const handleSubmit = evt => {
     evt.preventDefault();
     if (test.includes(evt.currentTarget.name.value)) {
-      contacts.map(item => {
-        if (item.name === evt.currentTarget.name.value) {
-          dispatch(
-            patchContact({
-              id: item.id,
-              name: evt.currentTarget.name.value,
-              number: evt.currentTarget.number.value,
-            })
-          );
-        }
-      });
-    } else {
-      dispatch(
-        addContact({
-          name: evt.currentTarget.name.value,
-          number: evt.currentTarget.number.value,
-        })
+      contacts.map(item =>
+        item.name === evt.currentTarget.name.value
+          ? dispatch(
+              patchContact({
+                id: item.id,
+                name: evt.currentTarget.name.value,
+                number: evt.currentTarget.number.value,
+              })
+            )
+          : dispatch(
+              addContact({
+                name: evt.currentTarget.name.value,
+                number: evt.currentTarget.number.value,
+              })
+            )
       );
     }
+
     dispatch(fetchContacts());
 
     evt.currentTarget.reset();
