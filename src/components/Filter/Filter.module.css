@@ -1,0 +1,26 @@
+.filterLabel {
+  font-size: 30px;
+  font-weight: 600;
+
+  display: flex;
+  gap: 30px;
+  margin-top: 25px;
+
+  color: #3a2477;
+}
+
+.filterInput {
+  font-size: 18px;
+
+  height: 35px;
+  width: 200px;
+
+  background-color: transparent;
+  color: #54698e;
+
+  border: #553c9a 1px solid;
+  border-radius: 5px;
+  &:focus {
+    background-color: rgb(240, 247, 250);
+  }
+}
