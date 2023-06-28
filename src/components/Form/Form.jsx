@@ -12,12 +12,10 @@ export default function Form() {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
-  const test = contacts.map(item => item.name);
-
   const handleSubmit = evt => {
     evt.preventDefault();
-    if (test.includes(evt.currentTarget.name.value)) {
-      contacts.map(item => {
+    if (contacts.find(item => item.name === evt.currentTarget.name.value)) {
+      contacts.forEach(item => {
         if (item.name === evt.currentTarget.name.value) {
           dispatch(
             patchContact({
